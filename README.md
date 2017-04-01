@@ -15,13 +15,10 @@ Linux:
 5. Copy either the psc or psc.py files to the /usr/local/bin, so the program can be run outside of the psc directory
 ### Usage
 Basic Brute Force Testing:
-'''
+```
 psc [PASSWORD] or python psc.py [PASSWORD]
-'''
+```
 Dictionary Attack Testing:
-'''
+```
 psc -d [PATH/TO/DICTIONARY] [PASSWORD]
-'''
-
-### Q&A
-Q:
+```
