@@ -30,7 +30,10 @@ def main():
 	
 	#Interpret Arguments
 	if arguments.dictionary:
-		Dict = open(arguments.dictionary, "r")
+		try:
+			Dict = open(arguments.dictionary, "r")
+		except IOError:
+			Errors(1)
 		print("Reading Dictionary...")
 		for line in Dict:
 			Dictionary.append(line[:-2])
@@ -69,9 +72,9 @@ def Brute(password):
 	UpperUsed = False
 	NumUsed = False
 	SymUsed = False
-	Pass = password.encode('string-escape') #Escape String So Special Characters Don't Affect Length
+	Pass = password.encode('string-escape')
 	
-	for i in range(len(password)):
+	for i in range(len(Pass)):
 		if Pass[i] == Pass[i].lower() and Pass[i] not in Symbols and LowerUsed == False:
 			CharPool = CharPool + 26
 			LowerUsed = True
@@ -86,7 +89,7 @@ def Brute(password):
 			SymUsed = True
 		else:
 			if Pass[i].isalpha() == False and Pass[i].isdigit() == False and Pass[i] not in Symbols:
-				Errors(3)
+				Errors(2)
 
 	#Get Entropy of Each Bit and Calculate Password Entropy
 	BitEntropy = math.log(CharPool, 2) * len(password)
@@ -111,17 +114,10 @@ def DictionaryAttack(password, dictionary):
 #Returns Errors(Easier to handle it all in one place)
 def Errors(code):
 	if code == 1: #File Does Not Exist
-		print("ERROR: Unable to locate File")
-		exit(1)
-	elif code == 2: #Not Running as Root(Probably Won't Ever Come up, but you Never Know)
-		print("Please Say The Magic Word\nHint: The Magic Word Is Sudo")
-		exit(2)
-	elif code == 3: #Password Contains Character not in Character Set
+		print("ERROR: Unable to Locate Dictionary")
+		exit()
+	elif code == 2: #Password Contains Character not in Character Set
 		print("ERROR: Password Contains Unknown Character; Reliable Results Can Not Be Obtained")
-		exit(3)
-	elif code == 4: #No Dictionary Specified
-		print("ERROR: No Dictionary Specified")
-		exit(4)
-
+		exit()
 #Call Main
 main()
