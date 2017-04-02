@@ -22,7 +22,7 @@ def main():
 	#Use Global Dictionary, BitEntropy, and HoursToCrack Variables
 	global Dictionary, BitEntropy, HoursToCrack
 	
-	#Create Argument Parser, and Add Options for Mutate and Dictionary
+	#Create Argument Parser, and Add Option for Dictionary Attacks
 	Parser = argparse.ArgumentParser()
 	Parser.add_argument("Password", type=str, help="Password Strength Testing Program")
 	Parser.add_argument("-d", "--dictionary", type=str, help="Test Against Dictionary Attacks")
