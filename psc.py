@@ -22,9 +22,9 @@ def main():
 	#Use Global Dictionary, BitEntropy, and HoursToCrack Variables
 	global Dictionary, BitEntropy, HoursToCrack
 	
-	#Create Argument Parser, and Add Option for Dictionary Attacks
+	#Create Argument Parser, and Add Options for Mutate and Dictionary
 	Parser = argparse.ArgumentParser()
-	Parser.add_argument("Password", type=str, help="Password Strength Testing Program")
+	Parser.add_argument("Password", type=str)
 	Parser.add_argument("-d", "--dictionary", type=str, help="Test Against Dictionary Attacks")
 	arguments = Parser.parse_args()
 	
@@ -72,23 +72,22 @@ def Brute(password):
 	UpperUsed = False
 	NumUsed = False
 	SymUsed = False
-	Pass = password.encode('string-escape')
 	
-	for i in range(len(Pass)):
-		if Pass[i] == Pass[i].lower() and Pass[i] not in Symbols and LowerUsed == False:
+	for i in range(len(password)):
+		if password[i] == password[i].lower() and password[i] not in Symbols and LowerUsed == False:
 			CharPool = CharPool + 26
 			LowerUsed = True
-		elif Pass[i] == Pass[i].upper() and Pass[i] not in Symbols and UpperUsed == False:
+		elif password[i] == password[i].upper() and password[i] not in Symbols and UpperUsed == False:
 			CharPool = CharPool + 26
 			UpperUsed = True
-		elif Pass[i].isdigit() and NumUsed == False:
+		elif password[i].isdigit() and NumUsed == False:
 			CharPool = CharPool + 10
 			NumUsed = True
-		elif Pass[i] in Symbols and SymUsed == False:
+		elif password[i] in Symbols and SymUsed == False:
 			CharPool = CharPool + len(Symbols)
 			SymUsed = True
 		else:
-			if Pass[i].isalpha() == False and Pass[i].isdigit() == False and Pass[i] not in Symbols:
+			if password[i].isalpha() == False and password[i].isdigit() == False and password[i] not in Symbols:
 				Errors(2)
 
 	#Get Entropy of Each Bit and Calculate Password Entropy
