@@ -7,11 +7,11 @@ Linux:
 
 1. From the Terminal Enter 'sudo git clone https://github.com/NetsecBeginner/psc'
 2. Navigate to the psc directory
-3. Either run the python script(psc.py), or the compiled program(psc)
+3. Make the files executable with the command 'sudo chmod +x psc.py psc'
+4. Either run the python script(psc.py), or the compiled program(psc)
 
   Optional:
-
-4. Make the psc.py file executable with the command 'sudo chmod +x psc.py'
+  
 5. Copy either the psc or psc.py files to the /usr/local/bin, so the program can be run outside of the psc directory
 ### Usage
 Basic Brute Force Testing:
@@ -25,7 +25,7 @@ psc -d [PATH/TO/DICTIONARY] [PASSWORD]
 ### Q&A
 ```
 Q: My password is being interpreted strangely, how can I fix that?
-A: This is probably because the password string is not escaped, try adding single quotes around the password('PASSWORD')
+A: Try adding single quotes around the password   ex: PASSWORD -->'PASSWORD'
 ```
 ```
 Q: I'm a developer, and I want to implement a password policy, what do you recommend?
@@ -41,5 +41,5 @@ A: Yes, feel free to use any parts of this program, but please give credit, eith
 ```
 ```
 Q: How can I make a secure password
-A: Select four random words(preferrably uncommon ones), and combine them [Relevant xkcd](https://www.xkcd.com/936/)
+A: Select four random words(preferrably uncommon ones), and combine them    Relevant xkcd: https://www.xkcd.com/936/
 ```
