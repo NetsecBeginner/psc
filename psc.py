@@ -22,7 +22,7 @@ def main():
 	#Use Global Dictionary, BitEntropy, and HoursToCrack Variables
 	global Dictionary, BitEntropy, HoursToCrack
 	
-	#Create Argument Parser, and Add Options for Mutate and Dictionary
+	#Create Argument Parser, and Add Option for Dictionary
 	Parser = argparse.ArgumentParser()
 	Parser.add_argument("Password", type=str)
 	Parser.add_argument("-d", "--dictionary", type=str, help="Test Against Dictionary Attacks")
@@ -36,7 +36,7 @@ def main():
 			Errors(1)
 		print("Reading Dictionary...")
 		for line in Dict:
-			Dictionary.append(line[:-2])
+			Dictionary.append(line[:-1])
 			
 	#Calculate Password Strength
 	print("Testing Brute Force Strength...")
