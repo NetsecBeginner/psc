@@ -22,6 +22,10 @@ Dictionary Attack Testing:
 ```
 psc -d [PATH/TO/DICTIONARY] [PASSWORD]
 ```
+Remember to Clear Your Bash History With:
+```
+cat /dev/null > ~/.bash_history ; history -cn
+```
 ### Q&A
 ```
 Q: My password is being interpreted strangely, how can I fix that?
