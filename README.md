@@ -24,7 +24,7 @@ psc -d [PATH/TO/DICTIONARY] [PASSWORD]
 ```
 Remember to Clear Your Bash History With:
 ```
-cat /dev/null > ~/.bash_history ; history -cn
+cat /dev/null > ~/.bash_history ; history -c
 ```
 ### Q&A
 ```
